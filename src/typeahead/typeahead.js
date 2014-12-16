@@ -324,6 +324,9 @@ angular.module('ui.bootstrap.typeahead', ['ui.bootstrap.position', 'ui.bootstrap
       });
 
       var $popup = $compile(popUpEl)(scope);
+      // Prevent jQuery cache memory leak
+      popUpEl.remove();
+      
       if (appendToBody) {
         $document.find('body').append($popup);
       } else {
